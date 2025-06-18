@@ -1,0 +1,40 @@
+.edit-task-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.edit-task-box {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-task-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f2937; 
+  margin-bottom: 24px;
+}
+
+.edit-task-error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 12px;
+  color: #b91c1c;
+  margin-bottom: 16px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 256px;
+}
+
+.loading-text {
+  font-size: 18px;
+  color: #6b7280;
+}
