@@ -8,7 +8,10 @@ const Home = () => {
   const { tasks, loading, error, deleteTask, updateTask } = useTasks();
   const [statusFilter, setStatusFilter] = useState('all');
 
-  const filteredTasks = tasks.filter(task => {
+  // Extract actual task array safely
+  const taskList = Array.isArray(tasks?.data) ? tasks.data : [];
+
+  const filteredTasks = taskList.filter(task => {
     if (statusFilter === 'all') return true;
     return task.status === statusFilter;
   });
@@ -34,7 +37,7 @@ const Home = () => {
       <div className="home-header">
         <h1 className="home-title">Task Manager</h1>
         <div className="home-subtitle">
-          {tasks.length} {tasks.length === 1 ? 'task' : 'tasks'} total
+          {taskList.length} {taskList.length === 1 ? 'task' : 'tasks'} total
         </div>
       </div>
 
@@ -42,10 +45,10 @@ const Home = () => {
         currentFilter={statusFilter} 
         onFilterChange={setStatusFilter}
         taskCounts={{
-          all: tasks.length,
-          todo: tasks.filter(t => t.status === 'todo').length,
-          in_progress: tasks.filter(t => t.status === 'in_progress').length,
-          done: tasks.filter(t => t.status === 'done').length,
+          all: taskList.length,
+          todo: taskList.filter(t => t.status === 'todo').length,
+          in_progress: taskList.filter(t => t.status === 'in_progress').length,
+          done: taskList.filter(t => t.status === 'done').length,
         }}
       />
 

@@ -3,9 +3,9 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
-import { AppDataSource } from './config/database.js';
-import taskRoutes from './routes/taskRoutes.js';
-import { errorHandler } from './middleware/errorHandler.js';
+import { AppDataSource } from './src/config/database.js';
+import router from './src/routes/taskRoutes.js';
+import { errorHandler } from './src/middlewares/errorHandler.js';
 
 dotenv.config();
 
@@ -29,7 +29,7 @@ app.use(limiter);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-app.use('/api/tasks', taskRoutes);
+app.use('/tasks', router); 
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });

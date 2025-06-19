@@ -48,7 +48,7 @@ const TaskForm = ({ initialTask = null, onSubmit, isSubmitting, submitText }) =>
       ...formData,
       due_date: formData.due_date || null,
     };
-
+    console.log(taskData);
     onSubmit(taskData);
   };
 

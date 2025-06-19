@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = 'http://localhost:3001';
 
 const handleResponse = async (response) => {
   if (!response.ok) {
@@ -24,7 +24,7 @@ export const getTask = async (id) => {
 };
 
 export const createTask = async (taskData) => {
-  const response = await fetch(`${API_BASE_URL}/tasks`, {
+  const response = await fetch(`${API_BASE_URL}/tasks/add`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

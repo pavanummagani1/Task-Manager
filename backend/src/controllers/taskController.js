@@ -7,6 +7,7 @@ const taskRepository = AppDataSource.getRepository(Task);
 export const taskController = {
   // Get all tasks
   getAllTasks: async (req, res) => {
+    console.log(req.body)
     try {
       const { status, sortBy = 'createdAt', order = 'DESC' } = req.query;
       
